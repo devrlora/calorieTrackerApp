@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Employee from './Employee';
-import AddEmployee from './AddEmployee';
+import Calorie from './Calorie';
+import AddCalorie from './AddCalorie';
 import Totals from './Totals';
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ class Home extends Component {
  constructor(props){
    super(props);
     this.state={
-    employees: []
+    calories: []
     };
 
   this.onDelete=this.onDelete.bind(this); 
@@ -21,7 +21,7 @@ class Home extends Component {
  }
 
   async componentDidMount() {
-    const response = await fetch('/raf_api/v1/employees');
+    const response = await fetch('/raf_api/v1/calories');
     axios.get(`https://jsonplaceholder.typicode.com/posts`
     // {headers: {
     //     "Authorization" : API_KEY
@@ -30,7 +30,7 @@ class Home extends Component {
     )
         .then(response => {
             console.log(response);
-            this.setState({item: response.data})
+            this.setState({calories: response.data})
         })
         .catch(error => {
                 console.log(error)
@@ -38,66 +38,66 @@ class Home extends Component {
         })
         
     const body = await response.json();
-    this.setState({ employees: body });
+    this.setState({ calories: body });
   }
 
 
-    getEmployees(){
-        return this.state.employees;
+    getCalories(){
+        return this.state.calories;
         }
 
-    onAdd(id,firstName,lastName,email){
-      const employees = this.getEmployees();
-      employees.push({
+    onAdd(id,calories,fats,proteins){
+      const calories = this.getCalories();
+      calories.push({
           id,
-        firstName,
-        lastName,
-        email
+          calories,
+          fats,
+          proteins
       });
-      this.setState({employees});
+      this.setState({calories});
     }
 
     onDelete(id){
-        const employees = this.getEmployees(); 
-        const filteredEmployees = employees.filter(employee => {
-        return employee.id !== id;
+        const calories = this.getCalories(); 
+        const filteredCalories = calories.filter(calorie => {
+        return calorie.id !== id;
         });
-        this.setState({employees: filteredEmployees});
+        this.setState({calories: filteredCalories});
     }  
  
-    onEditSubmit(id,firstName, lastName, email, originalId){
-    let employees = this.getEmployees();
-    employees = employees.map(employee => {
-        if(employee.id === originalId){
-            employee.id = id;
-          employee.firstName = firstName;
-          employee.lastName = lastName;
-          employee.email = email;
+    onEditSubmit(id,calories, fats, proteins, originalId){
+    let calories = this.getCalories();
+    calories = calories.map(calorie => {
+        if(calorie.id === originalId){
+            calorie.id = id;
+          calorie.calories = calories;
+          calorie.fats = fats;
+          calorie.proteins = proteins;
          }    
-         return employee;
+         return calorie;
         });
-        this.setState({employees});
+        this.setState({calories});
       }
 
   render() {
     // const {posts,errorMsg} = this.state
     return (
       <div className ='App'>
-        <h1>Employees List</h1>
+        <h1>Foods List</h1>
         <form onSubmit={this.handleSubmit}>
             <label>
-                Person Name:
+                Food Name:
                 <input type='text' name = 'name' onChange ={this.handleChange}/>
             </label>
             <button>Add</button>
         </form>
-        <AddEmployee
+        <AddCalorie
         onAdd ={this.onAdd}
         />
-        {this.state.employees.map(employee =>{
+        {this.state.calories.map(calorie =>{
           return (
-            <Employee
-              key = {employee.id}{...employee}
+            <Calorie
+              key = {calorie.id}{...calorie}
               onDelete = {this.onDelete}
               onEditSubmit = {this.onEditSubmit }
             />
