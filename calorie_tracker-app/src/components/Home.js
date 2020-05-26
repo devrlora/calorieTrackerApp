@@ -3,6 +3,7 @@ import Calorie from './Calorie';
 import AddCalories from './AddCalories';
 import Totals from './Totals';
 import axios from 'axios';
+import '../styles/Home.css';
 
 // const API_KEY=process.env.REACT_APP_API_KEY;
 // const API_ID=process.env.API_ID;
@@ -81,17 +82,20 @@ class Home extends Component {
 
   render() {
     return (
-      <div className ='App'>
-        <h1>Calorie Tracker</h1>
-        <form onSubmit={this.handleSubmit}>
-            <label>
-                Search Foods:
-                <input type='text' name = 'name' onChange ={this.handleChange}/>
-            </label>
-            <button>Add</button>
-        </form>
+      <div className ='parent-container'>
+        <h1 className = 'header'>Calorie Tracker</h1>
+        <div className='child-container'>
+        <div className ='form-container'>
+            <form className ='form-title' onSubmit={this.handleSubmit}>
+                  <label>
+                      Search Foods:
+                      <input type='text' name = 'name' onChange ={this.handleChange}/>
+                  </label>
+                <button>Add</button>
+            </form>
+        <div >
         <AddCalories
-        onAdd ={this.onAdd}
+         onAdd ={this.onAdd}
         />
         {this.state.calories.map(calorie =>{
           return (
@@ -103,6 +107,9 @@ class Home extends Component {
           )
         })}
             <Totals />
+        </div>
+        </div> 
+        </div>
       </div>
     )
   }
