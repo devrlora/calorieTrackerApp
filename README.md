@@ -29,4 +29,5 @@ Add value totals functionality.
 ## Link:
 
 ## Resources:
-
+1. https://www.youtube.com/watch?v=2oAS7MtMwqA Postgres and React
+2. https://alligator.io/react/axios-react/ Axios with React
