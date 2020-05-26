@@ -19,7 +19,7 @@ render(){
     return (
         <form onSubmit={this.onSubmit}>
             <h2>Add Calories</h2>
-            <input placeholder = "Id" ref={idInput=>this.idInput = idInput}/>
+            <input placeholder = "Name" ref={idInput=>this.idInput = idInput}/>
             <input placeholder = "Calories" ref={caloriesInput=>this.caloriesInput = caloriesInput}/>
             <input placeholder = "Fats"ref={fatsInput => this.fatsInput = fatsInput} />
             <input placeholder = "Proteins"ref={proteinsInput => this.proteinsInput = proteinsInput} />
