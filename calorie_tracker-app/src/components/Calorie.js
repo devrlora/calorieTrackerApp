@@ -31,35 +31,35 @@ class Calorie extends Component {
  }
 
 
-render(){
-const {id,calories,fats,proteins} = this.props;
-    return (
-        <div>
-            {
-            this.state.isEdit
-             ?(
-                <form onSubmit={this.onEditSubmit}> 
-                    <input placeholder = "Id" 
-                        ref={id=>this.idInput = id}
-                        defaultValue= {id} />
-                    <input placeholder = "Calories" 
-                        ref={calories=>this.caloriesInput = calories}
-                        defaultValue= {calories} />
-                    <input placeholder = "Fats"
-                        ref={fats => this.fatsInput = fats} 
-                        defaultValue= {fats} />
-                    <input placeholder = "Proteins"
-                        ref={proteinsInput => this.proteinsInput = proteinsInput} 
-                        defaultValue= {proteins} />
-                    <button>Save</button>
-                </form>
-                )
-             :(
+    render(){
+        const {id,calories,fats,proteins} = this.props;
+        return (
+            <div>
+                {
+                this.state.isEdit
+                ?(
+                    <form onSubmit={this.onEditSubmit}> 
+                        <input placeholder = "Id" 
+                            ref={id=>this.idInput = id}
+                            defaultValue= {id} />
+                        <input placeholder = "Calories" 
+                            ref={calories=>this.caloriesInput = calories}
+                            defaultValue= {calories} />
+                        <input placeholder = "Fats"
+                            ref={fats => this.fatsInput = fats} 
+                            defaultValue= {fats} />
+                        <input placeholder = "Proteins"
+                            ref={proteinsInput => this.proteinsInput = proteinsInput} 
+                            defaultValue= {proteins} />
+                        <button>Save</button>
+                    </form>
+                    )
+                :(
                 <div>
                     <span>{id}</span>
-                       
+                    
                     <span>{calories} cal</span>
-                       
+                    
                     <span>{fats} grams</span>
                     
                     <span>{proteins} grams</span>
@@ -67,9 +67,9 @@ const {id,calories,fats,proteins} = this.props;
                     <button onClick ={this.onDelete}>Delete</button>
                     
                     <button onClick ={this.onEdit}>Edit </button>
-               </div>
-                
-                )
+                </div>
+                    
+                 )
              }        
         </div>
     )
