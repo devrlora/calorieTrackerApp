@@ -5,6 +5,7 @@ class AddCalories extends Component {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
     }
+    
 onSubmit(event){
     event.preventDefault();
    this.props.onAdd(this.idInput.value,this.caloriesInput.value,this.fatsInput.value,this.proteinsInput.value)
@@ -12,7 +13,6 @@ onSubmit(event){
    this.caloriesInput.value = "";
    this.fatsInput.value = "";
    this.proteinsInput.value = "";
-
 }
 
 render(){
