@@ -80,7 +80,6 @@ class Home extends Component {
       }
 
   render() {
-    // const {posts,errorMsg} = this.state
     return (
       <div className ='App'>
         <h1>Calorie Tracker</h1>
@@ -103,15 +102,6 @@ class Home extends Component {
             />
           )
         })}
-         {/* <div>
-                List of posts
-                {
-                    posts.length ?
-                    posts.map(post => <div key = {post.id}> {post.title}</div>):
-                     null
-                }
-                {errorMsg ? <div>{errorMsg}</div>:null}
-            </div> */}
             <Totals />
       </div>
     )
