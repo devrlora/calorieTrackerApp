@@ -13,8 +13,8 @@ class Calorie extends Component {
  }
 
     onDelete(){
-     const {onDelete, id} = this.props; 
-      onDelete(id);
+        const {onDelete, id} = this.props; 
+        onDelete(id);
  }
 
     onEdit(){
@@ -22,7 +22,11 @@ class Calorie extends Component {
  }
     onEditSubmit(event){
         event.preventDefault();
-        this.props.onEditSubmit(this.idInput.value,this.caloriesInput.value, this.fatsInput.value,this.proteinsInput.value, this.props.id);
+        this.props.onEditSubmit(this.idInput.value,
+            this.caloriesInput.value, 
+            this.fatsInput.value,
+            this.proteinsInput.value, 
+            this.props.id);
         this.setState({isEdit: false});
  }
 
@@ -32,25 +36,25 @@ const {id,calories,fats,proteins} = this.props;
     return (
         <div>
             {
-                this.state.isEdit
-                ?(
-                    <form onSubmit={this.onEditSubmit}> 
-                        <input placeholder = "Id" 
-                            ref={id=>this.idInput = id}
-                            defaultValue= {id} />
-                        <input placeholder = "Calories" 
-                            ref={calories=>this.caloriesInput = calories}
-                            defaultValue= {calories} />
-                        <input placeholder = "Fats"
-                            ref={fats => this.fatsInput = fats} 
-                            defaultValue= {fats} />
-                        <input placeholder = "Proteins"
-                            ref={proteinsInput => this.proteinsInput = proteinsInput} 
-                            defaultValue= {proteins} />
-                        <button>Save</button>
-                    </form>
+            this.state.isEdit
+             ?(
+                <form onSubmit={this.onEditSubmit}> 
+                    <input placeholder = "Id" 
+                        ref={id=>this.idInput = id}
+                        defaultValue= {id} />
+                    <input placeholder = "Calories" 
+                        ref={calories=>this.caloriesInput = calories}
+                        defaultValue= {calories} />
+                    <input placeholder = "Fats"
+                        ref={fats => this.fatsInput = fats} 
+                        defaultValue= {fats} />
+                    <input placeholder = "Proteins"
+                        ref={proteinsInput => this.proteinsInput = proteinsInput} 
+                        defaultValue= {proteins} />
+                    <button>Save</button>
+                </form>
                 )
-                :(
+             :(
                 <div>
                     <span>{id}</span>
                        
