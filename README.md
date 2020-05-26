@@ -7,7 +7,6 @@
 
 ## Install:
 #### npm install axios
-#### npm install firebase-tools -g
 
 ## API used:
 ### https://trackapi.nutritionix.com/v2/search/item
