@@ -1,3 +1,6 @@
+body{
+    background-color:#cbe0e0;
+}
 .parent-container{
 display: flex;
 flex-direction: column;
@@ -11,7 +14,8 @@ text-align: center;
     align-items: center;
     align-content: center;
     background-color: #8bbabb;
-    margin-left: 29%;
+    margin-left: auto;
+    margin-right: auto;
     height: 525px;
     width: 675px;
     border-radius: 16px;
