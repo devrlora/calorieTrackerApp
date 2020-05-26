@@ -29,7 +29,7 @@ Add value totals functionality.
 ![Home Page](/Wireframe/Home.png)
 
 ## Link:
-### calorieTracker.surge.sh
+https://calorieTracker.surge.sh
 
 ## Resources:
 1. https://www.youtube.com/watch?v=2oAS7MtMwqA Postgres and React
