@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calorie from './Calorie';
-import AddCalorie from './AddCalorie';
+import AddCalories from './AddCalories';
 import Totals from './Totals';
 import axios from 'axios';
 
@@ -30,7 +30,7 @@ class Home extends Component {
     )
         .then(response => {
             console.log(response);
-            this.setState({calories: response.data})
+            this.setState({item: response.data})
         })
         .catch(error => {
                 console.log(error)
@@ -47,14 +47,14 @@ class Home extends Component {
         }
 
     onAdd(id,calories,fats,proteins){
-      const calories = this.getCalories();
-      calories.push({
+      const calories1 = this.getCalories();
+      calories1.push({
           id,
-          calories,
-          fats,
-          proteins
+        calories,
+        fats,
+        proteins
       });
-      this.setState({calories});
+      this.setState({calories1});
     }
 
     onDelete(id){
@@ -66,32 +66,32 @@ class Home extends Component {
     }  
  
     onEditSubmit(id,calories, fats, proteins, originalId){
-    let calories = this.getCalories();
-    calories = calories.map(calorie => {
+    let calories1 = this.getCalories();
+    calories1 = calories1.map(calorie => {
         if(calorie.id === originalId){
             calorie.id = id;
-          calorie.calories = calories;
-          calorie.fats = fats;
-          calorie.proteins = proteins;
+            calorie.calories = calories;
+            calorie.fats = fats;
+            calorie.proteins = proteins;
          }    
-         return calorie;
+         return calories;
         });
-        this.setState({calories});
+        this.setState({calories1});
       }
 
   render() {
     // const {posts,errorMsg} = this.state
     return (
       <div className ='App'>
-        <h1>Foods List</h1>
+        <h1>Calorie Tracker</h1>
         <form onSubmit={this.handleSubmit}>
             <label>
-                Food Name:
+                Search Foods:
                 <input type='text' name = 'name' onChange ={this.handleChange}/>
             </label>
             <button>Add</button>
         </form>
-        <AddCalorie
+        <AddCalories
         onAdd ={this.onAdd}
         />
         {this.state.calories.map(calorie =>{

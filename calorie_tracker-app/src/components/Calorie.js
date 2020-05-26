@@ -22,7 +22,7 @@ class Calorie extends Component {
  }
     onEditSubmit(event){
         event.preventDefault();
-        this.props.onEditSubmit(this.idInput.value,this.calorieInput.value, this.fatsInput.value,this.proteinsInput.value, this.props.id);
+        this.props.onEditSubmit(this.idInput.value,this.caloriesInput.value, this.fatsInput.value,this.proteinsInput.value, this.props.id);
         this.setState({isEdit: false});
  }
 
@@ -41,28 +41,28 @@ const {id,calories,fats,proteins} = this.props;
                         <input placeholder = "Calories" 
                             ref={calories=>this.caloriesInput = calories}
                             defaultValue= {calories} />
-                        <input placeholder = "Last Name"
+                        <input placeholder = "Fats"
                             ref={fats => this.fatsInput = fats} 
                             defaultValue= {fats} />
-                        <input placeholder = "Email"
+                        <input placeholder = "Proteins"
                             ref={proteinsInput => this.proteinsInput = proteinsInput} 
-                            defaultValue= {email} />
+                            defaultValue= {proteins} />
                         <button>Save</button>
                     </form>
                 )
                 :(
-                    <div>
+                <div>
                     <span>{id}</span>
-                       {`|`}
-                    <span>{calories}</span>
-                       {`|`}
-                       <span>{fats}</span>
-                       {`|`}
-                       <span>{proteins}</span>
-                       {`|`}
-                       <button onClick ={this.onDelete}>Delete</button>
-                       {`|`}
-                       <button onClick ={this.onEdit}>Edit </button>
+                       
+                    <span>{calories} cal</span>
+                       
+                    <span>{fats} grams</span>
+                    
+                    <span>{proteins} grams</span>
+                    
+                    <button onClick ={this.onDelete}>Delete</button>
+                    
+                    <button onClick ={this.onEdit}>Edit </button>
                </div>
                 
                 )

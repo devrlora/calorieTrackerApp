@@ -7,10 +7,10 @@ class AddCalories extends Component {
     }
 onSubmit(event){
     event.preventDefault();
-   this.props.onAdd(this.idInput.value,this.firstNameInput.value,this.lastNameInput.value,this.proteinsInput.value)
+   this.props.onAdd(this.idInput.value,this.caloriesInput.value,this.fatsInput.value,this.proteinsInput.value)
    this.idInput.value = "";
    this.caloriesInput.value = "";
-   this.lastNameInput.value = "";
+   this.fatsInput.value = "";
    this.proteinsInput.value = "";
 
 }
