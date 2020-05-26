@@ -11,7 +11,7 @@ export default function Totals() {
                 <input type='text' name = 'name'/>
                 <input type='text' name = 'name'/>
             </label>
-            <button>Add</button>
+            <button>Calculate</button>
         </form>
         </div>
     )
