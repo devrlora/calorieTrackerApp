@@ -11,7 +11,7 @@
 ### https://trackapi.nutritionix.com/v2/search/item
 ### https://jsonplaceholder.typicode.com/posts (For demo purposes)
 
-## Problem Statement:
+## Problem Statement/Target User:
 For people who want to watch the macro nutrient intake, and easily search multiple food items and calculate the total calories, fats and proteins of those items. 
 
 ## Proposition:
